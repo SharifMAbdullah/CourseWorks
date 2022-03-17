@@ -23,21 +23,11 @@ int main()
             }
         }
         
-    ///###############//
-    for(int i=0;i<n;i++) //tracks row
-        {
-            for(int j=0;j<2;j++) //tracks column
-            {
-                string result = "";
-                string temp = nfa_transition_table[i][j]; //stores content of transition table temporarily
-                for(int k=0;k<temp.size();k++)
-                {
-                    int index = temp[k] - '0';  //goes through
-                    result += nfa_transition_table[index][j];
-                }
-                dfa_transition_table[i][j] = result;
-            }
-        }
+    //first row of dfa will be same as nfa
+    dfa_transition_table[0][0] = nfa_transition_table[0][0];
+    dfa_transition_table[0][1] = nfa_transition_table[0][1];
+    
+    std::set<string> temp_nfa;
     
     cout << "DFA table : " <<endl;
     for(int i=0;i<n;i++)
@@ -46,7 +36,7 @@ int main()
             {
                 cout << nfa_transition_table[i][j] << "";
             }
-            puts("");
+            printf("\n");
         }
         
     return 0;
