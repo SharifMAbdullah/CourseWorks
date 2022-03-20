@@ -17,7 +17,7 @@ int main()
     cout << "Enter input table : " << endl;
     for(int i=0;i<n;i++)
         {
-            for(int j=0;j<2;j++)
+            for(int j=0;j<3;j++)
             {
                 cin >> nfa_transition_table[i][j];
             }
@@ -26,15 +26,44 @@ int main()
     //first row of dfa will be same as nfa
     dfa_transition_table[0][0] = nfa_transition_table[0][0];
     dfa_transition_table[0][1] = nfa_transition_table[0][1];
+    dfa_transition_table[0][2] = nfa_transition_table[0][2];
     
-    std::set<string> temp_nfa;
+    //const bool is_in = container.find(element) != container.end();
+    set<string> temp;
+    temp.insert(dfa_transition_table[0][1]);
+    temp.insert(dfa_transition_table[0][2]);
+    
+    int k =0;
+    for(int i=1;!temp.empty();i++)
+    {
+        for(int j=0;j<3;j++)
+            {
+                dfa_transition_table[i][j] = temp[k];
+                string t;
+                for(int l=0;l<temp[k].size();l++)
+                {
+                    temp[k][l]
+                    nfa_transition_table[][]
+                    t += [][0]
+                }
+            }
+    }
+    /*int i = 0;
+    while(!temp.empty())
+    {
+        for(int j=0;j<3;j++)
+        {
+            temp.insert(dfa_transition_table[i][j]);
+        }
+        i++;
+    }*/
     
     cout << "DFA table : " <<endl;
     for(int i=0;i<n;i++)
         {
             for(int j=0;j<2;j++)
             {
-                cout << nfa_transition_table[i][j] << "";
+                cout << dfa_transition_table[i][j] << "";
             }
             printf("\n");
         }
