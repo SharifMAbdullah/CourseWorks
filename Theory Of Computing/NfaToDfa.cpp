@@ -6,7 +6,7 @@ string nfa_transition_table[100][100];
 string inputs[100];
 int offset = 'a' - '0';
 
-int find(int states)
+int find(int states, char c)
 {
 	for(int i=0;i<states;i++)
 	   {
@@ -46,19 +46,20 @@ int main()
     temp.insert(dfa_transition_table[0][1]);
     temp.insert(dfa_transition_table[0][2]);
     
-    int k =0;
     for(int i=1;!temp.empty();i++)
     {
+        int k = 0;
         for(int j=0;j<3;j++)
             {
                 dfa_transition_table[i][j] = temp[k];
                 string t;
                 for(int l=0;l<temp[k].size();l++)
                 {
-                    temp[k][l]
-                    nfa_transition_table[][]
-                    t += [][0]
+                    int index = find(n,temp[k][l]);
+                    t += nfa_transition_table[index][j+1]
                 }
+                
+            dfa_transition_table[][] = t;
             }
     }
     /*int i = 0;
