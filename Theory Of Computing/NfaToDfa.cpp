@@ -5,6 +5,19 @@ string dfa_transition_table[100][100];
 string nfa_transition_table[100][100];
 string inputs[100];
 int offset = 'a' - '0';
+
+int find(int states)
+{
+	for(int i=0;i<states;i++)
+	   {
+		if(c==nfa_transition_table[i][0])
+		  {
+			return i;
+		  }
+	   }
+return 0;
+}
+
 int main()
 {
     int n;
