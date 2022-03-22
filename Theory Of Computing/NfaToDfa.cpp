@@ -1,4 +1,5 @@
 #include <iostream>
+#include<vector>
 using namespace std;
 
 string dfa_transition_table[100][100];
@@ -6,7 +7,7 @@ string nfa_transition_table[100][100];
 string inputs[100];
 int offset = 'a' - '0';
 
-int find(int states, char c)
+int find(int states, string c)
 {
 	for(int i=0;i<states;i++)
 	   {
@@ -42,24 +43,25 @@ int main()
     dfa_transition_table[0][2] = nfa_transition_table[0][2];
     
     //const bool is_in = container.find(element) != container.end();
-    set<string> temp;
-    temp.insert(dfa_transition_table[0][1]);
-    temp.insert(dfa_transition_table[0][2]);
+    vector<string> temp;
+    temp.push_back(dfa_transition_table[0][1]);
+    temp.push_back(dfa_transition_table[0][2]);
     
     for(int i=1;!temp.empty();i++)
     {
         int k = 0;
         for(int j=0;j<3;j++)
             {
-                dfa_transition_table[i][j] = temp[k];
+                //dfa_transition_table[i][j] = temp[k];
                 string t;
                 for(int l=0;l<temp[k].size();l++)
                 {
                     int index = find(n,temp[k][l]);
-                    t += nfa_transition_table[index][j+1]
+                    t += nfa_transition_table[index][j+1];
                 }
-                
-            dfa_transition_table[][] = t;
+            temp.insert(t);
+            dfa_transition_table[i][j] = t;
+            temp[k].erase();
             }
     }
     /*int i = 0;
