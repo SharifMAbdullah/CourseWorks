@@ -1,3 +1,4 @@
+package Thread;
 import java.util.Random;
 public class SimpleArray {
     private  final int array[];

@@ -1,3 +1,4 @@
+package Thread;
 import java.util.Random;
 public class printTask implements Runnable{
     private final int sleepTime;

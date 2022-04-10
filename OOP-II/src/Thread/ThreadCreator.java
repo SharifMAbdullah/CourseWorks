@@ -1,3 +1,4 @@
+package Thread;
 import java.lang.Thread;
 public class ThreadCreator {
     public static void main(String[] args) {
