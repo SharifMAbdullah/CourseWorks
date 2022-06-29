@@ -18,7 +18,7 @@ string encrypt(string s)
     string enc = "";
     for(int i=0;i<s.size();i++)
     {
-        enc += table[s[i] - ' '][i%26];
+        enc += table[s[i] - 'a'][i%26];
     }
 return enc;
 }
@@ -33,7 +33,7 @@ string decrypt(string s)
         {
             if(s[i]==table[j][i%26])
             {
-                dec += ' ' + j;
+                dec += 'a' + j;
             }
         }
     }
