@@ -4,6 +4,7 @@ using namespace std;
 
 string s = "Two One Nine Two";
 string key = "this is my kung fu";
+string extended_key;
 byte converted_string[17]; 
 byte substituted[17];
 
@@ -26,6 +27,9 @@ byte s_box[16][16] = {
 (byte)0x8c, (byte)0xa1, (byte)0x89, (byte)0x0d, (byte)0xbf, (byte)0xe6, (byte)0x42, (byte)0x68, (byte)0x41, (byte)0x99, (byte)0x2d, (byte)0x0f, (byte)0xb0, (byte)0x54, (byte)0xbb, (byte)0x16
 };
 
+byte round_constant[11] = { (byte)NULL, (byte)0x1, (byte)0x2, (byte)0x4, (byte)0x8, (byte)0x10, (byte)0x20, 
+                 (byte)0x40, (byte)0x80, (byte)0x1b, (byte)0x36};
+                 
 std::ostream& operator<< (std::ostream& os, std::byte b) 
 {
     return os << std::bitset<8>(std::to_integer<int>(b));
@@ -48,15 +52,33 @@ byte substitute_byte(byte og_byte)
     return s_box[row][col];
 }
 
-void key_expansion()
+void key_expansion(string original_key)
 {
+    int i;
+    for (i = 0; i < 16; i++) extended_key[i]=original_key[i]; //storing w[0...3] 
+    while (i<176)
+    {
+        string temp[4];
+        for (int j = 0; j < 4; j++) temp[j]=extended_key[i-4+j];  // storing the previous word in temp
 
+        if((i%16)==0)
+        {
+            rotword(temp);
+            subword(temp);
+            temp[0] ^= round_constant[(i/16)-1];
+        }
+        for (int k = 0; k < 4; k++)  extended_key[i+k]=temp[k]^extended_key[i-16+k];
+        i+=4;
+    }
+    
 }
 
 
 int main()
 {
     convert_to_char();
+    key_expansion(key);
+    
     for(int i=0;i<16;i++)
         {
             substituted[i] = substitute_byte((byte)converted_string[i]);
