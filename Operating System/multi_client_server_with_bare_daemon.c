@@ -21,7 +21,7 @@
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
-#include <arpa/inet.h>
+#include <winsock2.h>
 
 #define MYPORT 7070    // the port users will be connecting to
 #define BACKLOG 10     // how many pending connections queue will hold
