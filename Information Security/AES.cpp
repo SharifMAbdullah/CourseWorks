@@ -154,12 +154,36 @@ void encrypt()
         for(int j=0;j<4;j++)
             out[i*4+j] = state[j][i];
 }
+
+int fillBlock (int sz, char *str, unsigned char *in)
+{
+   int j=0;
+   while (sz < strlen(str)) 
+   {
+      if (j >= keySize*4) break;
+      in[j++] = (unsigned char)str[sz];
+      sz++;
+   }
+   // Pad the block with 0s, if necessary
+   if (sz >= strlen(str)) 
+    for ( ; j < keySize*4 ; j++) 
+        in[j] = 0;
+   return sz;   
+}
+
 int main()
 {
 
     keyExpansion();
-    encrypt();
-    
-    for (int i=0 ; i < columns*4 ; i++) 
-        cout << hex <<(int)out[i] << " ";
+    int sz=0;
+    char str[3000];
+    fgets(str,3000,stdin);
+    while (sz < strlen(str)) 
+    {
+        // Fill the array 'in' with the next plaintext block
+        sz = fillBlock (sz, str, in);
+        encrypt();
+        for (int i=0 ; i < columns*4 ; i++) 
+        cout << /*hex <<*/(int)out[i] << " ";
+    }
 }
