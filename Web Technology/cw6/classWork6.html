@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>  
+        let x=5;
+        let y="5";
+        if(x==5) document.write("constant value and varaible matched");
+        if(x==y) document.write("value matched");
+        if(x===y) document.write("type and value matched");
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="ok">This is it</h2>
+    <button onclick="document.getElementById('ok').innerHTML='LOL'">Click</button>
+    <button onclick="document.getElementById('ok').innerHTML='This is it'">Undo</button>
+    
+    <p id="mail">abc</p>
+    <p id="pass">123</p>
+    <script>
+        mailID = document.getElementById('mail').innerHTML
+        passID = parseInt(document.getElementById('pass').innerHTML)
+        let cnt = 0
+        for (let i = 0; i < 5; i++)
+        {
+        if(mailID!='mou@iit.du.ac.bd' && passID!='456')
+            {
+                document.write("WRONG credential ")
+                cnt = cnt+1
+            }
+        else
+            document.write("taken to homepage")
+        }
+        if(cnt==5) document.write("You are blocked")
+    </script>
+</body>
+</html>
