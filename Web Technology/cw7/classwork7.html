@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    
+    <p id="mail">abc</p>
+    <p id="pass">123</p>
+    <button ondblclick="func()">Click me!</button>
+
+    <div class="">
+        <p>This is para1</p>
+        <p>This is para2</p>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+    </div>
+
+    <script>
+        let p = document.lastChild.lastChild.lastChild.lastChild;
+        console.log(p);
+        let p1 = document.getElementById('mail');
+        p1.style.border = "2px solid";
+        function func(){
+            document.getElementById('mail').innerHTML='Changed text';
+        }
+    </script>
+</body>
+</html>
