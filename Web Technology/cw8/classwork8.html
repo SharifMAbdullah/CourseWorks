@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body id="body">
+    <p>This is para 1</p>
+    <p id="p2">This is para 2</p>
+    <p id="p3">This is para 3</p>
+    
+    <script>
+        let para = document.createElement("p");
+        para.innerText = "This is a created para";
+        document.lastChild.appendChild(para);
+
+        para = document.getElementById("p2");
+        para.remove();
+
+        newNode = document.createElement("p");
+        para = document.getElementById("body");
+        sib = document.getElementById("p3");
+        newNode.innerText = "This is para 2 zombie";
+        para.insertBefore(newNode,sib.nextSibling);
+    </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        .container1,.container3,.container2{
+            border:1px solid;
+            border-color: black;
+            height: 100px;
+            width: 100px;
+            float: left;
+        }
+        .btns{
+            padding-top: 10px;
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <div class="container1">
+        <div class="2">2</div>
+        <div class="4">4</div>
+        <div class="3">3</div>
+        <div class="1">1</div>
+    </div>
+
+    <div class="container2">
+    </div>
+
+    <div class="container3">
+    </div>
+    
+    <div class="btns">
+        <button onClick="func1_2()">1->2</button>
+        <button onClick="func1_3()">1->3</button>
+        <button onClick="func2_1()">2->1</button>
+        <button onClick="func2_3()">2->3</button>
+        <button onClick="func3_1()">3->1</button>
+        <button onClick="func3_2()">3->2</button>    
+    </div>
+
+    <script>
+    function func1_2(){
+        let para = document.getElementsByClassName("container1").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container2").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    function func1_3(){
+        let para = document.getElementsByClassName("container1").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container3").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    function func2_1(){
+        let para = document.getElementsByClassName("container2").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container1").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    function func2_3(){
+        let para = document.getElementsByClassName("container2").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container3").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    function func3_1(){
+        let para = document.getElementsByClassName("container3").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container1").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    function func3_2(){
+        let para = document.getElementsByClassName("container3").item(0).firstElementChild;
+        let adder = document.getElementsByClassName("container2").item(0);
+        
+        console.log(para);
+        para.remove();
+        adder.insertBefore(para,adder.children[0]);
+    }
+    </script>
+</body>
+</html>
