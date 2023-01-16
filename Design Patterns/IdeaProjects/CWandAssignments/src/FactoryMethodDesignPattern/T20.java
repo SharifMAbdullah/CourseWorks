@@ -1,6 +1,6 @@
 package FactoryMethodDesignPattern;
 
-public class T20 extends CricketFactory {
+public class T20 implements CricketInterface {
     @Override
 
      public void setMatchSize() {
