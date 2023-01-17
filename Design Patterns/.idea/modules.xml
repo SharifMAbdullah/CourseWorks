@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/AssigmentsAndClassWorks/AssigmentsAndClassWorks.iml" filepath="$PROJECT_DIR$/IdeaProjects/AssigmentsAndClassWorks/AssigmentsAndClassWorks.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/CWandAssignments/CWandAssignments.iml" filepath="$PROJECT_DIR$/IdeaProjects/CWandAssignments/CWandAssignments.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/CWandAssignments/src/CWandAssignments1.iml" filepath="$PROJECT_DIR$/IdeaProjects/CWandAssignments/src/CWandAssignments1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Design Patterns.iml" filepath="$PROJECT_DIR$/.idea/Design Patterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IdeaProjects/AssigmentsAndClassWorks/Shapes/Shapes.iml" filepath="$PROJECT_DIR$/IdeaProjects/AssigmentsAndClassWorks/Shapes/Shapes.iml" />
+    </modules>
+  </component>
+</project>
