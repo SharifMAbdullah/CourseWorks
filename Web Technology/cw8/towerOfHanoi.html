@@ -20,40 +20,42 @@
             padding-top: 10px;
             clear:both;
         }
-        .num{
-            
+        .mother{
+            margin: 3rem 3rem 3rem 3rem;
         }
     </style>
 </head>
 <body>
-    <div class="flex-container container1">
-        <div class="num">2</div>
-        <div class="num">4</div>
-        <div class="num">3</div>
-        <div class="num">1</div>
-    </div>
+    <div class="mother">
+        <div class="flex-container container1">
+            <div class="num">2</div>
+            <div class="num">4</div>
+            <div class="num">3</div>
+            <div class="num">1</div>
+        </div>
 
-    <div class="flex-container container2">
-    </div>
+        <div class="flex-container container2">
+        </div>
 
-    <div class="flex-container container3">
+        <div class="flex-container container3">
+        </div>
+        
+        <div class="btns">
+            <button onClick="func(1,2)">1->2</button>
+            <button onClick="func(1,3)">1->3</button>
+            <button onClick="func(2,1)">2->1</button>
+            <button onClick="func(2,3)">2->3</button>
+            <button onClick="func(3,1)">3->1</button>
+            <button onClick="func(3,2)">3->2</button>    
+        </div> 
+        <br>
+        <button onClick="check()">Check</button>
     </div>
-    
-    <div class="btns">
-        <button onClick="func(1,2)">1->2</button>
-        <button onClick="func(1,3)">1->3</button>
-        <button onClick="func(2,1)">2->1</button>
-        <button onClick="func(2,3)">2->3</button>
-        <button onClick="func(3,1)">3->1</button>
-        <button onClick="func(3,2)">3->2</button>    
-    </div> 
-    <br>
-    <button onClick="check()">Check</button>
 
     <script>
     function func(x,y){
-        let para = document.getElementsByClassName("container"+x).item(0).lastElementChild;
-        let adder = document.getElementsByClassName("container"+y).item(0);
+        var para = document.getElementsByClassName("container"+x).item(0).lastElementChild;
+        var adder = document.getElementsByClassName("container"+y).item(0);
         
         console.log(para);
         para.remove();
@@ -61,38 +63,31 @@
     }
 
     function check(){
+        
+        //check if all elements are present
+        var max;
+        var boxes = document.getElementsByClassName("flex-container");
+        
+        var count = 0;
         isSorted = true;
-        var total = document.querySelectorAll("flex-container");
-        console.log(total);
-        if(total[0].length!=4 || total[1].length!=4 || total[2].length!=4)
-        {
-            console.log("lol");
-            return;
-        }
-        var divs = document.querySelectorAll("num");
-        console.log(divs);
+        isAllPresent = false;
+        var divs = document.getElementsByClassName("num");
         for (var i = 0; i < divs.length - 1; i++) 
         {
-            if (divs[i].innerHTML > divs[i + 1].innerHTML) 
+            if (divs[i].innerHTML < divs[i + 1].innerHTML) 
             {
-                console.log("paisi mama");
                 isSorted = false;
                 break;
             }
+            if(boxes[0].childElementCount==4 || boxes[1].childElementCount==4 || boxes[2].childElementCount==4)
+            {   
+                isAllPresent = true;
+                break;
+            }
         }
-        if(isSorted==true) console.log("ok");
+        if(isSorted==true && isAllPresent==true) console.log("ok");
         else console.log("lol");
-        // if(pos[0].innerHTML==1 && pos[1].innerHTML==2 && pos[2].innerHTML==3 && pos[3].innerHTML==4)
-        // {
-        //     document.createTextNode("You Win!");
-        //     console.log("ok")
-        //     // h1.innerText("You Win!");
-        // }
-        // else{
-        //     document.append("Keep playing!");
-        //     console.log("lol")
-        //     // h1.innerText("Keep playing!");
-        // }
+        
     }
     </script>
 </body>
