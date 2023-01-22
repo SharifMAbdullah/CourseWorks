@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        //class discussion 
+        class student{
+            constructor(name,roll){
+            this.name = name;
+            this.roll = roll;
+        }
+        printRoll(){
+            console.log(this.roll);
+        }
+    }
+    let s = new student('lol',123);
+    s.printRoll();
+    console.log(s['name'])
+    </script> -->
+
+    <!-- form discussion -->
+    <form name="myForm">
+        <label for="id_name">Name</label>
+        <input type="text" id="id_name" name="myName">
+    
+        <br>
+        Gender
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">male</label>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">female</label>
+        
+        <br>
+        Select the topics that you want to learn:<br>
+        <input type="checkbox" id="html" name="topic1" value="html">
+        <label for="html">HTML</label><br>
+        <input type="checkbox" id="css" name="topic2" value="css">
+        <label for="css">CSS</label><br>
+        <input type="checkbox" id="js" name="topic3" value="js">
+        <label for="js">JS</label><br>
+    
+        Level of study:
+        <select name="degree" id="degree">
+            <option value="ssc">SSC</option>
+            <option value="hsc">HSC</option>
+            <option value="honors">Honors</option>
+            <option value="masters">Masters</option>
+        </select><br><br>
+        Address
+        <textarea name="address"></textarea><br/><br>
+        <input type="submit" value="Submit" onclick="validate()">
+
+        <script>
+            function validate(){
+                let name = document.forms["myForm"].myName.value;
+                if(name) alert(name);
+                else alert("null deo ken");
+                let gender = document.forms["myForm"].gender.value;
+                alert(gender);
+            }
+        </script>
+    </form>
+</body>
+</html>

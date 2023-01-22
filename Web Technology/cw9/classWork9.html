@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <form name="newForm">
+        <label for="id_name">Name</label>
+        <input type="text" id="id_name" name="myName">
+        <label for="id_age">Age</label>
+        <input type="number" id="id_age" name="myAge">
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd">
+        <input type="submit" value="Submit" onclick="validate()">    </form>
+    <script>
+        function validate(){
+            let pass = document.forms.newForm.pwd.value;
+            let age = document.forms.newForm.id_age.value;
+            if(pass.length<6)
+                alert("Password too weak");
+            else if(age<13)
+                alert("NOT ALLOWED");
+        }
+    </script>
+</body>
+</html>
