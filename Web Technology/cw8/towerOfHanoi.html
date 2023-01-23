@@ -8,25 +8,51 @@
     <title>Document</title>
     <style>
         .container1,.container3,.container2{
-            border:1px solid;
+            border:0.5px solid;
             border-color: black;
-            height: 100px;
-            width: 100px;
+            height: 300px;
+            width: 300px;
             float: left;
             display: flex;
             flex-direction: column-reverse;
         }
+        .num{
+            height: 60px;
+            width: 300px;
+            text-align: center;
+            background-color: bisque;
+            border: 1px solid salmon;
+        }
         .btns{
             padding-top: 10px;
             clear:both;
+            padding-left: 18rem;
         }
         .mother{
-            margin: 3rem 3rem 3rem 3rem;
+            margin: 15%;
+            padding: 7.5%;
+            background-color: antiquewhite;
+        }
+        .analyser{
+            padding-left: 25rem;
+        }
+        h1{
+            text-align: center;
+        }
+        button{
+            background-color: coral;
+        }
+        .check{
+            background-color: green;
+        }
+        .reset{
+            background-color: red;
         }
     </style>
 </head>
 <body>
     <div class="mother">
+        <h1>Start Playing!</h1>
         <div class="flex-container container1">
             <div class="num">2</div>
             <div class="num">4</div>
@@ -49,7 +75,10 @@
             <button onClick="func(3,2)">3->2</button>    
         </div> 
         <br>
-        <button onClick="check()">Check</button>
+        <div class="analyser">
+            <button class="check" onClick="check()">Check</button>
+            <button class="reset" onClick="reset()">Reset</button>    
+        </div>
     </div>
 
     <script>
@@ -57,37 +86,55 @@
         var para = document.getElementsByClassName("container"+x).item(0).lastElementChild;
         var adder = document.getElementsByClassName("container"+y).item(0);
         
-        console.log(para);
         para.remove();
         adder.append(para);
     }
 
     function check(){
-        
-        //check if all elements are present
-        var max;
         var boxes = document.getElementsByClassName("flex-container");
-        
         var count = 0;
         isSorted = true;
         isAllPresent = false;
         var divs = document.getElementsByClassName("num");
         for (var i = 0; i < divs.length - 1; i++) 
         {
+            //check if sorted
             if (divs[i].innerHTML < divs[i + 1].innerHTML) 
             {
                 isSorted = false;
                 break;
             }
+            //check if contains all elements
             if(boxes[0].childElementCount==4 || boxes[1].childElementCount==4 || boxes[2].childElementCount==4)
             {   
                 isAllPresent = true;
                 break;
             }
         }
-        if(isSorted==true && isAllPresent==true) console.log("ok");
-        else console.log("lol");
+        if(isSorted==true && isAllPresent==true) 
+            document.querySelector("h1").innerText = "You Win!";
+        else 
+            document.querySelector("h1").innerText = "Keep playing!";
+;
         
+    }
+    function reset(){
+        //get all num divs to the first container
+        var divs = document.getElementsByClassName("num");
+        var boxes = document.getElementsByClassName("flex-container");
+        var box = boxes.item(0);
+        for(var i = 0; i < 4; i++)
+        {
+            box.append(divs[i]);
+        }
+
+        //shuffle the nums
+        // for (var i = 4 - 1; i > 0; i--) {
+        //     var j = Math.floor(Math.random() * (i));
+        //     var temp = divs[i];
+        //     divs[i] = divs[j];
+        //     divs[j] = temp;
+        // }
     }
     </script>
 </body>
