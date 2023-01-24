@@ -11,14 +11,14 @@
             border:0.5px solid;
             border-color: black;
             height: 300px;
-            width: 300px;
+            width: 32%;
             float: left;
             display: flex;
             flex-direction: column-reverse;
         }
         .num{
             height: 60px;
-            width: 300px;
+            width: 100%;
             text-align: center;
             background-color: bisque;
             border: 1px solid salmon;
@@ -26,7 +26,7 @@
         .btns{
             padding-top: 10px;
             clear:both;
-            padding-left: 18rem;
+            padding-left: 25%;
         }
         .mother{
             margin: 15%;
@@ -34,7 +34,7 @@
             background-color: antiquewhite;
         }
         .analyser{
-            padding-left: 25rem;
+            padding-left: 40%;
         }
         h1{
             text-align: center;
@@ -96,28 +96,26 @@
         isSorted = true;
         isAllPresent = false;
         var divs = document.getElementsByClassName("num");
-        for (var i = 0; i < divs.length - 1; i++) 
-        {
-            //check if sorted
-            if (divs[i].innerHTML < divs[i + 1].innerHTML) 
-            {
-                isSorted = false;
-                break;
-            }
-            //check if contains all elements
-            if(boxes[0].childElementCount==4 || boxes[1].childElementCount==4 || boxes[2].childElementCount==4)
-            {   
-                isAllPresent = true;
-                break;
-            }
+
+        //check if all elements are present
+        if(boxes[0].childElementCount==4 || boxes[1].childElementCount==4 || boxes[2].childElementCount==4)
+        {   
+            isAllPresent = true;
         }
-        if(isSorted==true && isAllPresent==true) 
+        //check if sorted
+        for (var i = 0; i < divs.length; i++) 
+        {
+            if(divs[i].innerText == 4-i)
+                count++;
+        }
+        //check if all conditions are fulfiled
+        if(count==4 && isAllPresent==true)
             document.querySelector("h1").innerText = "You Win!";
-        else 
+        else
             document.querySelector("h1").innerText = "Keep playing!";
-;
         
     }
+    
     function reset(){
         //get all num divs to the first container
         var divs = document.getElementsByClassName("num");
@@ -128,13 +126,13 @@
             box.append(divs[i]);
         }
 
-        //shuffle the nums
-        // for (var i = 4 - 1; i > 0; i--) {
-        //     var j = Math.floor(Math.random() * (i));
-        //     var temp = divs[i];
-        //     divs[i] = divs[j];
-        //     divs[j] = temp;
-        // }
+        // shuffle the nums
+        for (var i = 4 - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i));
+            var temp = divs[i];
+            divs[i] = divs[j];
+            divs[j] = temp;
+        }
     }
     </script>
 </body>
