@@ -1,0 +1,13 @@
+<p>item-list works!</p>
+<ul>
+    <li *ngFor="let item of myItems">
+       <h3> {{item.name}} </h3>
+       <p>{{item.price}}</p>
+       <p>{{item.quantity}}</p>
+       <button *ngIf="item.quantity>0" (click)="buy(item.id)" >Buy</button>
+       <button *ngIf="item.quantity<=0" (click)="requestItem()">Request Stock</button>
+       <button (click) = "updateItem(item.id)">Update Item</button>
+    </li>
+
+</ul>
+
